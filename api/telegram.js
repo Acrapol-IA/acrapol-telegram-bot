@@ -97,9 +97,9 @@ function msgPaso1() {
 function msgPaso2() {
   return (
     "Paso 2/4 ✅\n\n" +
-    "Envíame en una sola línea:\n\n" +
-    "<b>Nombre Apellidos | Email matriculado | Curso</b>\n\n" +
-    "Ejemplo:\nJuan Pérez García | juan@email.com | Curso Básica\n\n" +
+    "Envíame en una sola línea (copia, pega y sustituye datos):\n\n" +
+    "<b>Nombre y apellidos | Email con el que te has matriculado | Curso (Total43, Pack 3 Módulos, Intensivo)</b>\n\n" +
+    "Ejemplo:\nMiguel García Fernández | miguel.acrapol@acrapol.com | Curso Total43\n\n" +
     "(<i>Escribe MENU para volver al inicio</i>)"
   );
 }
