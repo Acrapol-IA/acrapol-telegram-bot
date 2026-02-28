@@ -19,11 +19,17 @@ async function tgSendMessage(chat_id, text, reply_markup) {
     body: JSON.stringify(payload),
   });
 }
-
+async function tgAnswerCallbackQuery(callback_query_id) {
+  await fetch(TG("answerCallbackQuery"), {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ callback_query_id }),
+  });
+}
 function mainMenuKeyboard() {
   return {
     inline_keyboard: [
-      [{ text: "🎓 Acceder al grupo oficial", callback_data: "acceso_grupo" }],
+      [{ text: "🎓 Acceder al grupo oficial de la Academia", callback_data: "acceso_grupo" }],
       [{ text: "❓ Preguntar una duda", callback_data: "preguntar_duda" }],
     ],
   };
@@ -146,6 +152,7 @@ export default async function handler(req, res) {
   // Callback de botones
   if (update.callback_query) {
     const cq = update.callback_query;
+    await tgAnswerCallbackQuery(cq.id);
     const chat_id = cq.message.chat.id;
     const telegram_user_id = cq.from.id;
     const username = cq.from.username ?? null;
